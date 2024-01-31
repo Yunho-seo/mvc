@@ -1,3 +1,6 @@
+// HandleMapping.java을 없애고 Spring에서는 @RequestMapping을 사용하여
+// 요청에 알맞는 메서드를 명시, 매핑하여 실행시키면 된다.
+
 package kr.bit.controller;
 
 import java.io.IOException;
