@@ -14,6 +14,7 @@ import kr.bit.model.MemberVO;
 public class MemberController {  // implements Controller -- (X)
 	
 	// MemberContentController
+	@RequestMapping("/memberContent.do")  // 메소드 단위 매핑
 	public String memberContent(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
@@ -28,6 +29,7 @@ public class MemberController {  // implements Controller -- (X)
 	}
 	
 	// MemberDeleteController
+	@RequestMapping("/memberDelete.do")
 	public String memberDelete(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
@@ -48,6 +50,7 @@ public class MemberController {  // implements Controller -- (X)
 	}
 	
 	// MemberInsertController
+	@RequestMapping("/memberInsert.do")
 	public String memberInsert(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
@@ -82,6 +85,7 @@ public class MemberController {  // implements Controller -- (X)
 	}
 	
 	// MemberListController
+	@RequestMapping("/memberList.do")
 	public String memberList(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
@@ -94,6 +98,7 @@ public class MemberController {  // implements Controller -- (X)
 	}
 	
 	// MemberRegisterController
+	@RequestMapping("/memberRegister.do")
 	public String memberRegister(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
@@ -101,6 +106,7 @@ public class MemberController {  // implements Controller -- (X)
 	}
 	
 	// MemberUpdateController
+	@RequestMapping("/memberUpdate.do")
 	public String memberUpdate(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
