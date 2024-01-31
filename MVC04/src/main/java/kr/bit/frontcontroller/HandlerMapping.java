@@ -10,12 +10,19 @@ public class HandlerMapping {
 	public HandlerMapping() {
 		mappings = new HashMap<String, Controller>();
 		
-		mappings.put("/memberList.do", new MemberListController());
-		mappings.put("/memberInsert.do", new MemberInsertController());
-		mappings.put("/memberRegister.do", new MemberRegisterController());
-		mappings.put("/memberContent.do", new MemberContentController());
-		mappings.put("/memberUpdate.do", new MemberUpdateController());
-		mappings.put("/memberDelete.do", new MemberDeleteController());
+//		mappings.put("/memberList.do", new MemberListController());
+//		mappings.put("/memberInsert.do", new MemberInsertController());
+//		mappings.put("/memberRegister.do", new MemberRegisterController());
+//		mappings.put("/memberContent.do", new MemberContentController());
+//		mappings.put("/memberUpdate.do", new MemberUpdateController());
+//		mappings.put("/memberDelete.do", new MemberDeleteController());
+		
+		mappings.put("/memberList.do", new MemberController());
+		mappings.put("/memberInsert.do", new MemberController());
+		mappings.put("/memberRegister.do", new MemberController());
+		mappings.put("/memberContent.do", new MemberController());
+		mappings.put("/memberUpdate.do", new MemberController());
+		mappings.put("/memberDelete.do", new MemberController());
 	}
 	
 	public Controller getController(String key) {
