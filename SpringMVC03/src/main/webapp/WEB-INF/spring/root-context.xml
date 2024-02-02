@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mybatis-spring="http://mybatis.org/schema/mybatis-spring"
+	xsi:schemaLocation="http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring-1.2.xsd
+	http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+	
+	<!-- Root Context: defines shared resources visible to all other web components -->
+	<!-- 스프링 설정 파일, Service(기능, 비즈니스 로직), DAO(Repository), DB 등 비즈니스 로직과 관련된 설정 -->
+	
+	
+	<!-- MyBatis에서 SQLSessionFactory 생성 (JDBC 이용하여 커넥션풀 생성) -->
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource"/> <!-- dataSource 참조하여 DB연결, 커넥션 풀 만들어 팩토리에 객체 넣기-->
+		<property name="configLocation" value="/WEB-INF/mybatis/config.xml"/> 
+	</bean>
+	
+	
+	<!-- JDBC 연결 (Data source) -->
+	<bean id="dataSource" class="org.springframework.jdbc.datasource.SimpleDriverDataSource">
+		<property name="driverClass" value="${driver}"/>  <!-- driver는 db.properties파일에 있는 driver -->
+		<property name="url" value="${url}"/>
+		<property name="username" value="${username}"/>
+		<property name="password" value="${password}"/>
+	</bean>
+	
+	
+	<!-- db.properties 파일 연결 (객체를 생성하는 과정 -> 빈(Bean)) -->
+	 <bean id="propertyPlaceholderConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+	     <!-- locations? - 클래스가 가지고있는 속성(프로퍼티)의 이름 --> <!-- setLocations(value) -->
+	     <property name="locations" value="/WEB-INF/mybatis/db.properties"/> <!-- locations에 value값 넣기  -->
+	 </bean>
+	 
+	 <context:component-scan base-package="kr.inflearn.service" />
+	 <mybatis-spring:scan base-package="kr.inflearn.mapper" />
+</beans>
